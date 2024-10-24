@@ -14,10 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# exam_portal/urls.py
+
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registration/', include('registration.urls')),  # Include the registration app URLs
+    path('registration/', include('registration.urls')),
+    path('', RedirectView.as_view(url='/registration/')),  # Redirect root URL to registration page
+    
 ]
