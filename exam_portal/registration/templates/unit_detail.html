@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Unit Details</h1>
+<p>Name: {{ unit.name }}</p>
+<p>Leader: {{ unit.leader.username }}</p>
+<p>District: {{ unit.district.name }}</p>
+<h2>Members:</h2>
+<ul>
+    {% for member in unit.members.all %}
+    <li>{{ member.first_name }} {{ member.last_name }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'unit-list' %}">Back to Unit List</a>
+{% endblock %}

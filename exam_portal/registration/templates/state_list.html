@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>State List</h1>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    {% for state in states %}
+    <tr>
+        <td>{{ state.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
